@@ -45,7 +45,7 @@ jobs:
   docker:
     name: Docker
     needs: [typecheck, test]
-    if: github.event_name == 'push'
+    # if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -62,7 +62,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ghcr.io/redbark-co/actual-sync
+          images: ghcr.io/asherslab/actual-sync
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=sha-,format=short
